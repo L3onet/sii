@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('objective');
             $table->text('competence');
             $table->text('syllabus');
-            $table->enum('authorized');
+            $table->enum('authorized',['yes','not'])->default('not');
             $table->integer('activity');
             $table->integer('credits');
             $table->foreignId('period_id')->constrained()->onDelete('cascade')->onUpdate('cascade');

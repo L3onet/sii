@@ -19,8 +19,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->enum('status');
-            $table->foreignId('rol_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('status',['active','inactive'])->default('inactive');
+            $table->foreignId('roles_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('staff_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

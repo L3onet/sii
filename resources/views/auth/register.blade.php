@@ -9,6 +9,24 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <!-- LastName -->
+        <div>
+            <x-input-label for="lastname" :value="__('Lastname')" />
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+        </div>
+
+        <!-- Role -->
+        <div>
+            <x-input-label for="roles" :value="__('Roles')" />
+            <select id="lastname" class="form-select" name="roles" :value="old('lastname')">
+                @foreach ( $roles as $r )
+                <option value="{{ $r->id }}">{{ $r->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('roles')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
